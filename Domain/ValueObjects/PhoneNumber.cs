@@ -9,7 +9,7 @@ namespace Domain.ValueObjects
 
         private PhoneNumber(string value) => Value = value; //Constructor
 
-        private static PhoneNumber? Create(string value)
+        public static PhoneNumber? Create(string value)
         {
             if (string.IsNullOrEmpty(value) ||
                 !PhoneNumberRegex().IsMatch(value) ||
