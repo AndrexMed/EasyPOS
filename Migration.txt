@@ -1,0 +1,7 @@
+dotnet ef migrations add InitialMigration -p Infrastructure -s Web.Api -o Persistence/Migrations
+
+Se actualiza dontnet con el sgte comando:
+dotnet tool update --global dotnet-ef
+
+
+dotnet ef database update -p Infrastructure -s Web.Api
