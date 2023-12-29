@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Application.Customers.Create
 {
-    internal sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, ErrorOr<Unit>>
+    public sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, ErrorOr<Unit>>
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IUnityOfWork _unityOfWork;
