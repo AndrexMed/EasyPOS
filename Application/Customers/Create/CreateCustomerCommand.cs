@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using ErrorOr;
+using MediatR;
 
 namespace Application.Customers.Create
 {
@@ -11,7 +12,7 @@ namespace Application.Customers.Create
                                         string line2,
                                         string city,
                                         string state,
-                                        string zipCode) : IRequest<Unit>
+                                        string zipCode) : IRequest<ErrorOr<Unit>>
     {
     }
 }
