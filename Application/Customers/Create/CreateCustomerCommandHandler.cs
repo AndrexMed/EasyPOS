@@ -9,9 +9,9 @@ namespace Application.Customers.Create
     public sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, ErrorOr<Unit>>
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly IUnityOfWork _unityOfWork;
+        private readonly IUnitOfWork _unityOfWork;
 
-        public CreateCustomerCommandHandler(ICustomerRepository customerRepository, IUnityOfWork unityOfWork)
+        public CreateCustomerCommandHandler(ICustomerRepository customerRepository, IUnitOfWork unityOfWork)
         {
             _customerRepository = customerRepository ?? throw new ArgumentNullException(nameof(customerRepository));
             _unityOfWork = unityOfWork ?? throw new ArgumentNullException(nameof(customerRepository));
@@ -46,7 +46,7 @@ namespace Application.Customers.Create
                 true
                 );
 
-            await _customerRepository.Add(customer);
+            _customerRepository.Add(customer);
             await _unityOfWork.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
